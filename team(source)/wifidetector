@@ -1,0 +1,26 @@
+import subprocess
+import time
+
+def scan_wifi():
+    # Use subprocess to run a Wi-Fi scan command (e.g., 'iwlist')
+    # Parse the output to get a list of detected MAC addresses
+    pass
+
+def check_for_phone(mac_address):
+    detected_macs = scan_wifi()
+    if mac_address in detected_macs:
+        return True
+    return False
+
+def send_alert(message):
+    # Use email, SMS, or push notification libraries to send the alert
+    pass
+
+if __name__ == "__main__":
+    target_mac = "AA:BB:CC:DD:EE:FF"  # Replace with the phone's MAC address (if known)
+
+    while True:
+        if check_for_phone(target_mac):
+            send_alert("Phone detected!")
+            break  # Or continue scanning for multiple detections
+        time.sleep(10)  # Scan every 10 seconds
